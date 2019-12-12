@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Employee_Database.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+        
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #c5f7f8;
+  height:100px;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+  padding:40px;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #f33737;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+        </style>
+
+       
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <header>
+            <nav>
+                
+                <h1>TRICON INFOTECH EMPLOYEE DETAILS</h1>
+
+    <ul>
+    <li><asp:Image ID="Image1" runat="server" ImageUrl="https://img.icons8.com/nolan/96/000000/men-age-group-5--v1.png" /></li>
+   <li><a href="WebForm1.aspx">Home</a></li>
+  <li><a href="About.aspx">About</a></li>
+  <li><a href="#contact">Contact</a></li>
+        
+  
+    </ul>
+</nav>
+
+        </header>
+<%--  --%>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                 </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
