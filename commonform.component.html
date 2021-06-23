@@ -1,0 +1,161 @@
+<div>
+    <span (click)="openBookPopup()">
+      <button>Add Books</button>
+    </span>
+  </div>
+  <div>
+    <span (click)="openChapterPopup()">
+      <button>Add Chapters</button>
+    </span>
+  </div>
+
+  <div>
+    <table class="table table-bordered mt-3">
+      <thead class="thead-light">
+        <tr>
+          <th>link</th>
+          <th>Sr.No</th>
+          <th>Book Name</th>
+          <th>Chapter Name</th>
+          <th>Delete Book</th>
+          <!-- <div id="chapter">
+                      <th>Chapter Name</th>
+                      <table class="table table-bordered mt-3">
+                       
+                          <tr>
+                              <th>Sr.No</th>
+                              <th>Chapter Name</th>
+                          </tr>
+                          <tbody>
+                              <tr *ngFor="let item of booklist; index as bookno">
+                                  <td>{{userno + 1}}</td>
+                                  <td>{{item}}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div> -->
+        </tr>
+      </thead>
+      <tbody>
+        {{this.booklist}}
+        <tr *ngFor="let item of onfiltersubject(); index as bookno">
+          <!-- <td><a routerLink="{{item.bookID}}" routerLinkActive="active" (click)="GetSubject()"></a> </td> -->
+         <td><button (click)="GetSubject(item.bookID)">link</button> {{item.bookID}}</td>
+          <td>{{item.bookID}} </td>
+          <td>{{item.bookName}}</td>
+          <td>
+            <table class="table table-bordered mt-3">
+              <tr>
+                <th>Sr.No</th>
+                <th>Chapter Name</th>
+              </tr>
+              <tbody>
+                <!-- <tr *ngFor="let i of chapterlist[userno]; index as chapterno">
+                              <td>{{chapterno + 1}}</td>
+                              <td>{{i.chapterName}}</td>
+                          </tr> -->
+                <tr *ngFor="let i of item.ChapterName; index as chapterno">
+                  <td>{{chapterno + 1}}</td>
+                  <td>{{i.chapterName}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <button (click)="ondeleteBook(bookno)" class="btn btn-success">Remove Subject</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="isPopupOpen" class="show1">
+    <div class='show2'>
+      <div>
+        <label>BookName</label>
+        <input #bookname type="text" [(ngModel)]="BookName">
+  
+      </div>
+  
+      <div>
+        <label>BookId</label>
+        <input #bookid type="number" [(ngModel)]="chapterId">
+      </div>
+  
+      <div>
+        <button (click)="addBooks(bookname,bookid)">
+          Print Values
+        </button>
+      </div>
+      <div>
+        <button (click)="openBookPopup()">
+          Close
+        </button>
+      </div>
+      <!-- <span (click)="openPopup()">Close</span>  -->
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div *ngIf="chapterpopup" class="show1">
+    <div class='show2'>
+      <div>
+        <label>ChapterName</label>
+        <input #chaptername type="text" [(ngModel)]="chanpterName">
+  
+      </div>
+  
+      <div>
+        <label>ChapterId</label>
+        <input type="number" [(ngModel)]="chapterId">
+      </div>
+  
+      <div>
+        <button (click)="addChapters(chaptername,'')">
+          Print Values
+        </button>
+      </div>
+      <div>
+        <button (click)="openChapterPopup()">
+          Close
+        </button>
+      </div>
+      <!-- <span (click)="openPopup()">Close</span>  -->
+    </div>
+  </div>
+  
+  
+  
+  <!-- <div>
+      <table class="table table-bordered mt-3">
+          <thead class="thead-light">
+              <tr>
+                  <th>Chapter Name</th>
+                  <th>Delete Subject</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of userlist; index as userno">
+                  <td>{{userno + 1}}</td>
+                  <td>{{item}}</td>
+                  <td>
+                      <button (click)="ondelete(userno)" class="btn btn-success">Remove Subject</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div> -->
+  
+  
+  
